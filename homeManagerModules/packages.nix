@@ -1,0 +1,57 @@
+{ pkgs, ... }: {
+
+  home.packages = with pkgs; [
+    neovim
+    firefox
+    neofetch
+    stow
+    nodejs
+    deno
+    slack
+    obsidian
+    dbeaver
+    openssl
+    cargo
+    yarn
+    nodePackages.pnpm
+    nodePackages.eslint
+    nodePackages.eslint_d
+    fzf
+    ripgrep
+    go
+    tree-sitter
+    gcc
+    fd
+    tmux
+    tmuxinator
+    feh
+    scrot
+    xclip
+    glib
+    zoom-us
+    gphoto2
+    ffmpeg
+    thunderbird
+    krita
+    picom
+    rnote
+    polybar
+    spotify
+    lazygit
+    jq
+    libmpdclient
+    cargo
+    python3
+    silicon
+    bat
+    freetype
+    stylua
+    openvpn
+    discord
+    gparted
+    woeusb
+    awscli
+    dunst
+    redis
+  ];
+}
