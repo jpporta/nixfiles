@@ -53,5 +53,13 @@
     awscli
     dunst
     redis
+    sampler
+    google-chrome
+    golangci-lint
+    gotools
+    zip
+    pinentry
+    beekeeper-studio
+		onlyoffice-bin
   ];
 }

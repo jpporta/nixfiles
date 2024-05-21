@@ -5,8 +5,7 @@
     userEmail = "jpedro.porta@gmail.com";
     extraConfig = {
       commit.gpgsign = true;
-      gpg.format = "ssh";
-      user.signingKey = "~/.ssh/id_ed25519.pub";
+      user.signingKey = "B7DFC1392B5BE2B9";
       push = {
         autoSetupRemote = true;
       };
