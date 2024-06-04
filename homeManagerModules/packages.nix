@@ -60,6 +60,12 @@
     zip
     pinentry
     beekeeper-studio
-		onlyoffice-bin
+    onlyoffice-bin
+    telegram-desktop
+    kubectl
+    pavucontrol
+    tidal-hifi
+    playerctl
+    turbo
   ];
 }
