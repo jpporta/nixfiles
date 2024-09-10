@@ -1,39 +1,40 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ];
 
   main-user.enable = true;
   main-user.userName = "jpporta";
   main-user.name = "Joao Pedro Pin Porta";
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit inputs;
+    };
     users = {
       "jpporta" = ./home.nix;
     };
   };
 
   # Bootloader.
-  boot =
-    {
-      loader.systemd-boot.enable = true;
-      loader.efi.canTouchEfiVariables = true;
-      kernelModules = [ "v4l2loopback" ]; # Autostart kernel modules on boot
-      extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; # loopback module to make OBS virtual
-			supportedFilesystems = [ "ntfs" ];
-
-      extraModprobeConfig = ''
-        			options v4l2loopback devices=2 card_label="iPhone","Canon" exclusive_caps=1,1 max_buffers=2
-        		'';
-    };
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelModules = [ "v4l2loopback" ]; # Autostart kernel modules on boot
+    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; # loopback module to make OBS virtual
+  };
 
   networking.hostName = "NixOS-jpporta";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   networking.networkmanager.enable = true;
 
@@ -54,32 +55,39 @@
   };
 
   services = {
-    displayManager = {
-      defaultSession = "none+i3";
+    getty = {
+      autologinUser = "jpporta";
     };
-    xserver = {
-      xkb = {
-        layout = "us,us";
-        variant = ",intl";
-        options = "grp:win_space_toggle";
-      };
-
+    openssh = {
       enable = true;
-      desktopManager = {
-        xterm.enable = false;
-      };
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          dmenu
-          i3status
-          i3lock
-        ];
-      };
+      passwordAuthentication = false;
+			authorizedKeysInHomedir = true;
     };
   };
-
-  services.getty.autologinUser = "jpporta";
+  # services = {
+  #   displayManager = {
+  #     defaultSession = "none+i3"; };
+  #   xserver = {
+  #     xkb = {
+  #       layout = "us,us";
+  #       variant = ",intl";
+  #       options = "grp:win_space_toggle";
+  #     };
+  #
+  #     enable = true;
+  #     desktopManager = {
+  #       xterm.enable = false;
+  #     };
+  #     windowManager.i3 = {
+  #       enable = true;
+  #       extraPackages = with pkgs; [
+  #         dmenu
+  #         i3status
+  #         i3lock
+  #       ];
+  #     };
+  #   };
+  # };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -96,9 +104,7 @@
     blueman
   ];
   environment.variables = {
-    LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [
-      fontconfig
-    ];
+    LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ fontconfig ];
   };
   environment.localBinInPath = true;
   hardware.bluetooth.enable = true;
@@ -109,5 +115,4 @@
   services.udisks2.enable = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

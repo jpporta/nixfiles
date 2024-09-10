@@ -3,10 +3,10 @@
   imports = [
     ./git.nix
     ./kitty.nix
-    ./mpd.nix
+    # ./mpd.nix
     ./packages.nix
-    ./picom.nix
-    ./theming.nix
+    # ./picom.nix
+    # ./theming.nix
     ./zsh.nix
   ];
 }
