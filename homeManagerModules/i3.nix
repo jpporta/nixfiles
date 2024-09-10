@@ -9,13 +9,14 @@ in
     config = {
       modifier = mod;
       fonts = {
-        names = [ "BerkeleyMono NerdFont" "Noto Emoji" ];
+        names = [
+          "BerkeleyMono NerdFont"
+          "Noto Emoji"
+        ];
         size = 12.0;
       };
       startup = [
-        {
-          command = "dex --autostart --environment i3";
-        }
+        { command = "dex --autostart --environment i3"; }
         { command = "xss-lock --transfer-sleep-lock -- i3lock --nofork"; }
         { command = "nm-applet"; }
         { command = "feh --bh-center $HOME/Wallpaper/$(ls $HOME/Wallpaper | shuf -n 1)"; }
@@ -25,15 +26,15 @@ in
       };
       workspaceOutputAssign = {
         "1" = {
-          output = "DP-4";
+          output = "DP-1";
           workspace = "Firefox";
         };
         "2" = {
-          output = "DP-4";
+          output = "DP-1";
           workspace = "Slack";
         };
         "3" = {
-          output = "DP-4";
+          output = "DP-1";
           workspace = "Random";
         };
         "4" = {
@@ -101,7 +102,6 @@ in
         "${mod}+Shift+2" = "exec scrot -M 0 ~/Documents/Caputures/$(date '+%FT%H-%M-%S').png -e 'xclip --selection clipboard -target image/png -i $f'";
         "${mod}+Shift+3" = "exec scrot -u ~/Documents/Caputures/$(date '+%FT%H-%M-%S').png -e 'xclip --selection clipboard -target image/png -i $f'";
         "${mod}+Shift+4" = "exec sleep 0.2 && scrot -s -f ~/Captures/Screenshots/$(date '+%FT%H-%M-%S').png -e 'xclip -selection clipboard -target image/png -i $f'";
-
       };
       keycoebingings = {
         "${mod}+34" = "workspace 6";
@@ -128,14 +128,13 @@ in
 
           Return = "mode \"default\"";
           Escape = "mode \"default\"";
-
         };
       };
       assigns = {
-        "1" = [{ class = "firefox"; }];
-        "2" = [{ class = "Slack"; }];
-        "5" = [{ class = "obsidian"; }];
-        "6" = [{ class = "thunderbird"; }];
+        "1" = [ { class = "firefox"; } ];
+        "2" = [ { class = "Slack"; } ];
+        "5" = [ { class = "obsidian"; } ];
+        "6" = [ { class = "thunderbird"; } ];
       };
     };
   };

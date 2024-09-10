@@ -3,9 +3,10 @@
   programs.zsh = {
     enable = true;
     initExtra = ''
-      		[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      		neofetch
-      		'';
+            		[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+            		fastfetch
+      					eval "$(fzf --zsh)"
+            		'';
     plugins = [
       {
         name = "powerlevel10k";

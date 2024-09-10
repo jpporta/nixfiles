@@ -1,9 +1,8 @@
-{ pkgs, ... }: {
-
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     neovim
     firefox
-    neofetch
     stow
     nodejs
     deno
@@ -14,8 +13,9 @@
     cargo
     yarn
     nodePackages.pnpm
-    nodePackages.eslint
     nodePackages.eslint_d
+    nodePackages.prettier
+    nodePackages.typescript-language-server
     fzf
     ripgrep
     go
@@ -67,5 +67,20 @@
     tidal-hifi
     playerctl
     turbo
+    arandr
+    bc
+    p3x-onenote
+    codespell
+    nixfmt-rfc-style
+    fastfetch
+    typescript
+    vscode-langservers-extracted
+    emmet-ls
+    tailwindcss-language-server
+    vlc
+    bun
+    flyctl
+		redis
+		obs-studio
   ];
 }

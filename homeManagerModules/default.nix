@@ -1,11 +1,12 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   imports = [
-    ./zsh.nix
-    ./kitty.nix
-    ./packages.nix
-    ./theming.nix
     ./git.nix
+    ./kitty.nix
     ./mpd.nix
+    ./packages.nix
     ./picom.nix
+    ./theming.nix
+    ./zsh.nix
   ];
 }

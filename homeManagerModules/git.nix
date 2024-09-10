@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs.git = {
     enable = true;
     userName = "Joao Pedro Pin Porta";

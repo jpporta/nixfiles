@@ -24,6 +24,7 @@
       loader.efi.canTouchEfiVariables = true;
       kernelModules = [ "v4l2loopback" ]; # Autostart kernel modules on boot
       extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; # loopback module to make OBS virtual
+			supportedFilesystems = [ "ntfs" ];
 
       extraModprobeConfig = ''
         			options v4l2loopback devices=2 card_label="iPhone","Canon" exclusive_caps=1,1 max_buffers=2
