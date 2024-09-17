@@ -31,6 +31,14 @@
 
   networking = {
 		hostName = "NixOS-jpporta";
+		dhcpcd.enable = false;
+		interfaces = {
+				eno1.ipv4.addresses = [{
+						address = "192.168.3.150";
+						prefixLength = 24;
+				}];
+		};
+		defaultGateway = "192.168.3.1";
 		firewall = {
 				enable = true;
 				allowedTCPPortRanges = [

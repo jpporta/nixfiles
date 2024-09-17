@@ -8,7 +8,6 @@
     deno
     slack
     obsidian
-    dbeaver
     openssl
     cargo
     yarn
