@@ -29,7 +29,15 @@
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; # loopback module to make OBS virtual
   };
 
-  networking.hostName = "NixOS-jpporta";
+  networking = {
+		hostName = "NixOS-jpporta";
+		firewall = {
+				enable = true;
+				allowedTCPPortRanges = [
+						{ from = 3000; to = 3100; }
+				];
+		};
+	};
 
   nix.settings.experimental-features = [
     "nix-command"

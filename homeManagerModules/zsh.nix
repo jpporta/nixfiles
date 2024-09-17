@@ -6,6 +6,7 @@
             		[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
             		fastfetch
       					eval "$(fzf --zsh)"
+								eval "$(zoxide init zsh --cmd cd)"
             		'';
     plugins = [
       {
@@ -18,6 +19,7 @@
       tx = "tmuxinator";
       gup = "git add --all && git commit -m \"$(date)\" && git push";
       n = "nvim";
+			ls = "eza --icons=always";
     };
   };
 }

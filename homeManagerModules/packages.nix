@@ -82,5 +82,8 @@
     flyctl
 		redis
 		obs-studio
+		zoxide
+		eza
+		yazi
   ];
 }
